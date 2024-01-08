@@ -1,0 +1,34 @@
+﻿@model Exam;
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Sınav Oluşturma</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Ders Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Class.ClassName" type="text" class="form-control" placeholder="Ders Adı">
+                        <span style="color:red" asp-validation-for="Class.ClassName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Sınav Açıklaması</label>
+                        <input id="myInput" autocomplete="off" asp-for="Explanation" type="text" class="form-control" placeholder="Sınav Açıklaması">
+                        <span style="color:red" asp-validation-for="Explanation"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Ders Kodu</label>
+                        <input id="myInput" autocomplete="off" asp-for="Class.ClassCode" type="text" class="form-control" placeholder="Ders Kodu">
+                        <span style="color:red" asp-validation-for="Class.ClassCode"></span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button onclick="checkInput()" type="submit" class="btn btn-primary">Sınav Oluştur</button>
+                    <button asp-area="Idare" asp-controller="Exam" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

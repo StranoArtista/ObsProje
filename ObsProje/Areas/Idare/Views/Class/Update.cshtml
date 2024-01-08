@@ -1,0 +1,32 @@
+﻿@model Class;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Ders Güncelleme Ekranı</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-md-3">Ders Adı</label>
+                        <input autocomplete="off" asp-for="ClassName" type="text" class="form-control" value="@Model.ClassName" placeholder="@Model.ClassName">
+                        <span style="color:red" asp-validation-for="ClassName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Ders Kodu</label>
+                        <input autocomplete="off" asp-for="ClassCode" type="text" class="form-control" value="@Model.ClassCode" placeholder="@Model.ClassCode">
+                        <span style="color:red" asp-validation-for="ClassCode"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Ders Güncelle</button>
+                    <button asp-area="Idare" asp-controller="Class" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.centered-div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    width: 700px;
+}

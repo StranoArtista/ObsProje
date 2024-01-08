@@ -1,0 +1,32 @@
+﻿@model Role;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Rol Güncelleme Ekranı</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-md-3">Rol Adı</label>
+                        <input autocomplete="off" asp-for="Name" type="text" class="form-control" value="@Model.Name" placeholder="@Model.Name">
+                        <span style="color:red" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Rol Açıklaması</label>
+                        <input autocomplete="off" asp-for="Role_Exp" type="text" class="form-control" value="@Model.Role_Exp" placeholder="@Model.Role_Exp">
+                        <span style="color:red" asp-validation-for="Role_Exp"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Rol Güncelle</button>
+                    <button asp-area="Idare" asp-controller="Role" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
