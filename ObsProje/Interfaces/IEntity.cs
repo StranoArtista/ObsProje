@@ -13,8 +13,8 @@ namespace ObsProje.Interfaces
 
         // Dates
         DateTime CreatedDate { get; set; }
-        DateTime UpdatedDate { get; set; }
-        DateTime DeletedDate { get; set; }
+        DateTime? UpdatedDate { get; set; }
+        DateTime? DeletedDate { get; set; }
 
         // Users
         string? CreatedBy { get; set; }

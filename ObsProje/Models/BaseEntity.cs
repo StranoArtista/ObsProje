@@ -21,8 +21,8 @@ namespace ObsProje.Models
 
         // Dates
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         // Users (Will be provided from AppUser class. Only the UserName will be written in the property.)
         public string? CreatedBy { get; set; }

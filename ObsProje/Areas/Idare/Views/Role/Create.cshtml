@@ -1,4 +1,5 @@
-﻿@model Role;
+﻿@using ObsProje.Models.ViewModels;
+@model RoleVM;
 
 <div class="container">
     <div class="centered-div">
@@ -10,13 +11,13 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Rol Adı</label>
-                        <input id="myInput" autocomplete="off" asp-for="Name" type="text" class="form-control" placeholder="Rol Adı">
-                        <span style="color:red" asp-validation-for="Name"></span>
+                        <input id="myInput" autocomplete="off" asp-for="RoleName" type="text" class="form-control" placeholder="Rol Adı">
+                        <span style="color:red" asp-validation-for="RoleName"></span>
                     </div>
                     <div class="form-group">
                         <label>Rol Açıklaması</label>
-                        <input id="myInput" autocomplete="off" asp-for="Role_Exp" type="text" class="form-control" placeholder="Rol Açıklaması">
-                        <span style="color:red" asp-validation-for="Role_Exp"></span>
+                        <input id="myInput" autocomplete="off" asp-for="RoleDescription" type="text" class="form-control" placeholder="Rol Açıklaması">
+                        <span style="color:red" asp-validation-for="RoleDescription"></span>
                     </div>
                 </div>
                 <div class="card-footer">

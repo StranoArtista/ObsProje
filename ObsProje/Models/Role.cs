@@ -19,8 +19,8 @@ namespace ObsProje.Models
         //IEntity Properties
         public int ID { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
         public string? CreatedBy { get; set; }
         public string? UpdatedBy { get; set; }
         public string? DeletedBy { get; set; }
@@ -31,5 +31,6 @@ namespace ObsProje.Models
 
         //Relations
         public virtual List<User_Role>? User_Roles { get; set; }
+        
     }
 }

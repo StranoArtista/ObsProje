@@ -3,7 +3,7 @@
     public class Exam:BaseEntity
     {
         
-        public string Explanation { get; set; }
+        public string? Explanation { get; set; }
 
         //Relations
         public virtual List<User_Exam>? User_Exams { get; set; }

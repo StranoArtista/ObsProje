@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using ObsProje.Interfaces;
 using ObsProje.Models;
 
 namespace ObsProje.Areas.Idare.Controllers
@@ -10,30 +11,34 @@ namespace ObsProje.Areas.Idare.Controllers
     {   
         private readonly MyContext _context;
         private readonly SignInManager<User> _signInManager;
+        private readonly IManager<Exam> _examManager;
 
-        public ExamController(MyContext context, SignInManager<User> signInManager)
+        public ExamController(MyContext context, SignInManager<User> signInManager,IManager<Exam> examManager)
         {
             _signInManager = signInManager;
             _context = context;
+            _examManager = examManager;
         }
 
         public IActionResult Index()
         {
-            bool isSignedIn = _signInManager.IsSignedIn(User);
+            var exams = _examManager.GetActives();
+            return View(exams); 
+            //bool isSignedIn = _signInManager.IsSignedIn(User);
 
-            if (isSignedIn)
-            {
-                List<Exam> exams = _context.Exams.Where(x => x.Status == Enums.DataStatus.Active).ToList();
+            //if (isSignedIn)
+            //{
+            //    List<Exam> exams = _context.Exams.Where(x => x.Status == Enums.DataStatus.Active).ToList();
 
-                return View(exams);
-            }
+            //    return View(exams);
+            //}
 
-            else
-            {
-                //todo: Login sayfasına yönlendirilecek !
-                return View();
-            }
-
+            //else
+            //{
+            //    //todo: Login sayfasına yönlendirilecek !
+            //    return RedirectToAction("Index");
+            //}
+            
         }
 
         public IActionResult Create()

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ObsProje.Models
@@ -18,16 +19,19 @@ namespace ObsProje.Models
             Status = DataStatus.Active;
         }
         //IEntity Properties
+        [JsonPropertyName("UserId")]
         public int ID { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
         public string? CreatedBy { get; set; }
         public string? UpdatedBy { get; set; }
         public string? DeletedBy { get; set; }
         public DataStatus Status { get; set; }
 
         //Custom Properties
+        
+        public string? Password { get; set; }
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public string? TelNo { get; set; }
@@ -36,6 +40,7 @@ namespace ObsProje.Models
 
 
         //Relations
+
 
         public virtual List<User_Role>? User_Roles { get; set; }
         public virtual List<User_Class>? User_Classes { get; set; }

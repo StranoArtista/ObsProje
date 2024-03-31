@@ -1,5 +1,4 @@
-﻿@using ObsProje.Models;
-@model List<Role>;
+﻿@model List<User>;
 <style>
     body {
         padding: 30px;
@@ -10,15 +9,19 @@
         <div class="card">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Sınav İşlemleri</h3>
-                    <a asp-area="Idare" asp-controller="Role" asp-action="Create" class="btn btn-primary" style="float: right;">Yeni Rol Oluştur</a>
+                    <h3 class="card-title">Kullanıcı İşlemleri</h3>
+                    <a asp-area="Idare" asp-controller="User" asp-action="Create" class="btn btn-primary" style="float: right;">Yeni Kullanıcı Oluştur</a>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <table class="table-bordered" id="dataTableData">
                         <thead>
                             <tr>
-                                <th class="cm-strong">Rol Adı</th>
-                                <th class="cm-strong">Rol Açıklaması</th>
+                                <th class="cm-strong">Adı</th>
+                                <th class="cm-strong">Soyadı</th>
+                                <th class="cm-strong">E-Mail</th>
+                                <th class="cm-strong">Telefon Numarası</th>
+                                <th class="cm-strong">Adres</th>
+                                <th class="cm-strong">TC Kimlik Numarası</th>
                                 <td style="text-align:center;" class="cm-strong">İşlemler</td>
                             </tr>
                         </thead>
@@ -26,14 +29,18 @@
 
                             @if (Model.Count > 0)
                             {
-                                foreach (var role in Model)
+                                foreach (var user in Model)
                                 {
                                     <tr>
-                                        <td>@role.Name</td>
-                                        <td>@role.Role_Exp</td>
+                                        <td>@user.Name</td>
+                                        <td>@user.Surname</td>
+                                        <td>@user.Email</td>
+                                        <td>@user.TelNo</td>
+                                        <td>@user.Address</td>
+                                        <td>@user.TCKN</td>
                                         <td style="text-align:center;">
-                                            <a asp-area="Idare" asp-controller="Role" asp-action="Update" asp-route-id="@role.ID" class="btn btn-xs btn-warning">Güncelle</a>
-                                            <button class="btn btn-xs btn-danger deletebtn" id="@role.ID" name="@role.Name">Sil</button>
+                                            <a asp-area="Idare" asp-controller="User" asp-action="Update" asp-route-id="@user.ID" class="btn btn-xs btn-warning">Güncelle</a>
+                                            <button class="btn btn-xs btn-danger deletebtn" id="@user.ID" name="@user.Name @user.Surname">Sil</button>
                                         </td>
                                     </tr>
                                 }
@@ -74,7 +81,7 @@
                 if (result.isConfirmed) {
                     // AJAX request to delete branch
                     $.ajax({
-                        url: `/Idare/Role/Delete`,
+                        url: `/Idare/User/Delete`,
                         type: 'Post',
                         data: { Id: parseInt(id) },
                         success: function (data) {
@@ -106,7 +113,7 @@
             document.addEventListener('DOMContentLoaded', function () {
                 Swal.fire({
                     title: 'Oluşturuldu !',
-                    text: 'Yeni Rol Başarıyla Oluşturuldu !',
+                    text: 'Yeni Kullanıcı Başarıyla Oluşturuldu !',
                     icon: 'success'
                 });
             });
@@ -119,7 +126,7 @@
             document.addEventListener('DOMContentLoaded', function () {
                 Swal.fire({
                     title: 'Güncellendi !',
-                    text: 'Seçili Rol Başarıyla Güncellendi !',
+                    text: 'Seçili Kullanıcı Başarıyla Güncellendi !',
                     icon: 'success'
                 });
             });

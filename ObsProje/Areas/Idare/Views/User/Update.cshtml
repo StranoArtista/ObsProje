@@ -1,0 +1,52 @@
+﻿@model User;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kullanıcı Güncelleme Ekranı</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-md-3">Adı</label>
+                        <input autocomplete="off" asp-for="Name" type="text" class="form-control" value="@Model.Name" placeholder="@Model.Name">
+                        <span style="color:red" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Soyadı</label>
+                        <input autocomplete="off" asp-for="Surname" type="text" class="form-control" value="@Model.Surname" placeholder="@Model.Surname">
+                        <span style="color:red" asp-validation-for="Surname"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">E-Mail</label>
+                        <input autocomplete="off" asp-for="Email" type="email" class="form-control" value="@Model.Email" placeholder="@Model.Email">
+                        <span style="color:red" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Telefon Numarası</label>
+                        <input autocomplete="off" asp-for="TelNo" type="text" class="form-control" value="@Model.TelNo" placeholder="@Model.TelNo">
+                        <span style="color:red" asp-validation-for="TelNo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Adres</label>
+                        <input autocomplete="off" asp-for="Address" type="text" class="form-control" value="@Model.Address" placeholder="@Model.Address">
+                        <span style="color:red" asp-validation-for="Address"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">TC Kimlik Nuamarası</label>
+                        <input autocomplete="off" asp-for="TCKN" type="text" class="form-control" value="@Model.TCKN" placeholder="@Model.TCKN">
+                        <span style="color:red" asp-validation-for="TCKN"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Kullanıcı Güncelle</button>
+                    <button asp-area="Idare" asp-controller="User" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

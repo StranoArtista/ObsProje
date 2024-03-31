@@ -1,14 +1,17 @@
 using ObsProje.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddIdentityServices();
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContextService();
+builder.Services.AddRepManServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
