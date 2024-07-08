@@ -12,8 +12,8 @@ using ObsProje.Models;
 namespace ObsProje.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20240117224955_ReturnOneBack")]
-    partial class ReturnOneBack
+    [Migration("20240526111033_ObsDB")]
+    partial class ObsDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,46 +255,6 @@ namespace ObsProje.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("ObsProje.Models.Syllabus", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeletedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Term")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Syllabuses");
-                });
-
             modelBuilder.Entity("ObsProje.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -370,9 +330,6 @@ namespace ObsProje.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SyllabusId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TCKN")
                         .HasColumnType("nvarchar(max)");
 
@@ -401,9 +358,6 @@ namespace ObsProje.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("SyllabusId")
-                        .IsUnique();
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -568,17 +522,6 @@ namespace ObsProje.Migrations
                     b.Navigation("Class");
                 });
 
-            modelBuilder.Entity("ObsProje.Models.User", b =>
-                {
-                    b.HasOne("ObsProje.Models.Syllabus", "Syllabus")
-                        .WithOne("User")
-                        .HasForeignKey("ObsProje.Models.User", "SyllabusId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Syllabus");
-                });
-
             modelBuilder.Entity("ObsProje.Models.User_Class", b =>
                 {
                     b.HasOne("ObsProje.Models.Class", "Class")
@@ -656,11 +599,6 @@ namespace ObsProje.Migrations
             modelBuilder.Entity("ObsProje.Models.Role", b =>
                 {
                     b.Navigation("User_Roles");
-                });
-
-            modelBuilder.Entity("ObsProje.Models.Syllabus", b =>
-                {
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ObsProje.Models.User", b =>

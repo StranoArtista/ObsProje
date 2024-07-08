@@ -12,7 +12,7 @@ namespace ObsProje.Configurations
             builder.HasMany(x => x.User_Roles).WithOne(x => x.User).OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
             builder.HasMany(x => x.User_Classes).WithOne(x => x.User).OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
             builder.HasMany(x => x.User_Exams).WithOne(x => x.User).OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
-            builder.HasOne(x => x.Syllabus).WithOne(x => x.User).HasForeignKey<User>(x => x.SyllabusId).OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+            
         }
     }
 }

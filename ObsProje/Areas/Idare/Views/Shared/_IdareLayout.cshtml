@@ -245,7 +245,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" id="kullaniciIslemleriMenuDropDown" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Kullanıcı İşlemleri
@@ -255,7 +255,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a asp-area="Idare" asp-controller="User" asp-action="Index" class="nav-link">
+                                    <a asp-area="Idare" asp-controller="User" asp-action="Index" id="kullaniciListBtn" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kullanıcı Listesi</p>
                                     </a>
@@ -284,23 +284,23 @@
                             </a>
                         </li> *@
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a id="rolIslemleriMenuDropDown" href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Rol İşlemleri
                                     <i class="fas fa-angle-left right"></i>
-
+                                    
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a asp-area="Idare" asp-controller="Role" asp-action="Index" class="nav-link">
+                                    <a asp-area="Idare" asp-controller="Role" asp-action="Index" id="rolListBtn" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Rol Listesi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-area="Idare" asp-controller="Role" asp-action="Create" class="nav-link">
+                                    <a asp-area="Idare" asp-controller="Role" asp-action="Create" id="rolEklemeBtn" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Rol Ekleme</p>
                                     </a>
@@ -997,7 +997,7 @@
     <script src="~/font-awesome/js/all.min.js"></script>
     @RenderSection("Scripts", required: false)
     <!-- AdminLTE for demo purposes -->
-    <script src="~/adminlte/js/demo.js"></script>
+    <!--<script src="~/adminlte/js/demo.js"></script>-->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/adminlte/js/dashboard2.js"></script>
 </body>

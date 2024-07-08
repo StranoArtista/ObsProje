@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using ObsProje.Models.ViewModels
+@model LoginVM
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,13 +58,22 @@
 
     <div class="login-container">
         <form method="post">
-            <label>Okul Numarası:</label>
-            <input type="text" required>
-
-            <label>Şifre:</label>
-            <input type="password" required>
-
-            <input type="submit" value="Giriş Yap" class="login-button">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input asp-for="UserName" id="myUserNameInput" autocomplete="off" type="text" class="form-control" placeholder="Kullanıcı Adı">
+                    <span style="color:red" asp-validation-for="UserName"></span>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input asp-for="Password" id="myPasswordInput" autocomplete="off" type="password" class="form-control" placeholder="Şifre">
+                    <span style="color:red" asp-validation-for="Password"></span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" id="idariGirisBtn" class="btn btn-primary">Giriş Yap</button>
+                <button asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+            </div>
         </form>
     </div>
 </body>

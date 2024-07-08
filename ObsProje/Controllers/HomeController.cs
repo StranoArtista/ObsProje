@@ -118,16 +118,7 @@ namespace ObsProje.Controllers
                     UserName = loginVM.UserName,
                     Password = loginVM.Password
                 };
-                //var result = await _signInManager.PasswordSignInAsync(_user, loginVM.Password,false,false);
-                //if (result.Succeeded)
-                //{
-                //    return RedirectToAction("Index", "Idare", new { area = "Idare" });
-                //}
-                //else
-                //{
-                //    ModelState.AddModelError(string.Empty, "Geçersiz giriş denemesi.");
-                //    return View(loginVM);
-                //}
+                
                 if (_user != null && _user.Status == Enums.DataStatus.Active || _user.Status == Enums.DataStatus.Modified)
                 {
                     List<User> userList = _context.Users.Where(x => x.Status == Enums.DataStatus.Active).ToList();

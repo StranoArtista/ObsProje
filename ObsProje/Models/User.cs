@@ -45,8 +45,7 @@ namespace ObsProje.Models
         public virtual List<User_Role>? User_Roles { get; set; }
         public virtual List<User_Class>? User_Classes { get; set; }
         public virtual List<User_Exam>? User_Exams { get; set; }
-        public virtual Syllabus? Syllabus { get; set; }
-        public int SyllabusId { get; set; }
+
 
     }
 }

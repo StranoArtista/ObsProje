@@ -20,7 +20,6 @@ namespace ObsProje.Models
             builder.ApplyConfiguration(new Class_Configuration());
             builder.ApplyConfiguration(new Exam_Configuration());
             builder.ApplyConfiguration(new Role_Configuration());
-            builder.ApplyConfiguration(new Syllabus_Configuration());
             builder.ApplyConfiguration(new User_Class_Configuration());
             builder.ApplyConfiguration(new User_Configuration());
             builder.ApplyConfiguration(new User_Exam_Configuration());
@@ -31,7 +30,6 @@ namespace ObsProje.Models
         public DbSet<Class> Classes { get; set; }
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<Syllabus> Syllabuses  { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<User_Class>  User_Classes { get; set; }
         public DbSet<User_Exam> User_Exams { get; set; }
